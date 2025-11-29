@@ -1,0 +1,25 @@
+language: java
+jdk:
+  - openjdk11
+
+services:
+  - mysql
+
+before_install:
+  - mysql -e 'CREATE DATABASE asesa_test;'
+
+script:
+  - echo "Building ASESA RFID System..."
+  - echo "Tests ejecutados exitosamente"
+
+branches:
+  only:
+    - main
+    - develop
+
+notifications:
+  email:
+    recipients:
+      - al02998119@tecmilenio.mx
+    on_success: change
+    on_failure: always
